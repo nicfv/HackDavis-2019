@@ -17,7 +17,7 @@
                 <a href="/">Home</a>
             </li>
             <li class="navitem">
-                <a href="/">About</a>
+                <a href="/About">About</a>
             </li>
         </ul>
         <div id="map"></div>

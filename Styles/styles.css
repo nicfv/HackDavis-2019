@@ -2,6 +2,7 @@
 
 * {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1em;
     margin: 0;
     border: 0;
     padding: 0;
@@ -24,13 +25,39 @@ a, a:link, a:visited {
 }
 
 a:hover {
-    color: #ff9;
+    color: #ccc;
 }
 
 a:active {
-    color: #ff0;
+    color: transparent;
+    text-shadow: 1px 1px 0 #ccc;
 }
 
 div#map {
     height: 75vh;
+}
+
+form {
+    background: #ccc;
+    border-radius: 0.25em;
+    box-shadow: 0.25em 0.25em 0.15em #666;
+}
+
+h1, p, form, form input {
+    margin: 1em;
+}
+
+form input[type=Submit] {
+    padding: 0.25em;
+    background: #999;
+    border-radius: 0.15em;
+}
+
+form input[type=Submit]:hover {
+    background: #666;
+}
+
+form input[type=Submit]:active {
+    color: transparent;
+    text-shadow: 1px 1px 0 #000;
 }

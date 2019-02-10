@@ -32,15 +32,24 @@
             streetViewControl: false
         });
 
-        var marker = new google.maps.Marker({
+        var marker = [new google.maps.Marker({
             position: {lat: 38.545, lng: -121.741},
             map: map,
             title: "NAME",
-            clickable: true,
+            clickable: true
+        }), new google.maps.Marker({
+            position: {lat: 38.550, lng: -121.740},
+            map: map,
+            title: "NAME2",
+            clickable: true
+        })];
+
+        marker[0].addListener('click', function() {
+            window.location.href = "/l1";
         });
 
-        marker.addListener('click', function() {
-            window.location.href = "/Styles";
+        marker[1].addListener('click', function() {
+            window.location.href = "/l2";
         });
 
       }

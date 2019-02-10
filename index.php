@@ -47,18 +47,8 @@
                 (function () {
                     var id = patients[markers.length-1].id;
                     markers[markers.length-1].addListener("click", function() { window.location.href = "/Patient?id="+id; }, false);
-                }()); // immediate invocation
+                }()); // Immediate invocation.
             }
-
-            var marker = new google.maps.Marker({
-                position: {lat: 38.5, lng: -121.5},
-                map: map,
-                title: "NAME",
-                clickable: true
-            });
-            marker.addListener("click", function() {
-                window.location.href = "/Patient?id=0";
-            });
         }
 
         function patient(id, name, lat, lon) {

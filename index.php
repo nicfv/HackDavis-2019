@@ -42,9 +42,12 @@
                     title: patients[i].name,
                     clickable: true
                 }));
-                markers[markers.length-1].addListener("click", function() {
-                    window.location.href = "/Patient?id="+patients[markers.length-1].id;
-                });
+                // Add an event listener for clicking on each marker.
+                // Clicking on the marker will take you to the patients page.
+                (function () {
+                    var id = patients[markers.length-1].id;
+                    markers[markers.length-1].addListener("click", function() { window.location.href = "/Patient?id="+id; }, false);
+                }()); // immediate invocation
             }
 
             var marker = new google.maps.Marker({
@@ -71,21 +74,6 @@
         $result = query('SELECT id, name, latitude, longitude FROM `'.$dbname.'`.`patients` WHERE hide = 0;');
         while($row = mysqli_fetch_assoc($result)) {
             echo 'patients.push(new patient("'.$row['id'].'", "'.$row['name'].'", '.$row['latitude'].', '.$row['longitude'].'));';
-            // echo 'var marker'.$row['id'].' = new google.maps.Marker({
-            //     position: {lat: '.$row['latitude'].', lng: '.$row['longitude'].'},
-            //     map: map,
-            //     title: "'.$row['name'].'",
-            //     clickable: true
-            // });';
-            // echo 'markers.push(new google.maps.Marker({
-            //     position: {lat: '.$row['latitude'].', lng: '.$row['longitude'].'},
-            //     map: map,
-            //     title: "'.$row['name'].'",
-            //     clickable: true
-            // }));';
-            // echo 'markers['.($row['id']-1).'].addListener("click", function() {
-            //     window.location.href = "/Patient?id='.$row['id'].'";
-            // });';
         }
         echo '}'; // function addMarkers
         echo 'addPatients();';

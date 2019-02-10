@@ -25,23 +25,25 @@
 
       function initMap() {
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
-          center: {lat: 38.545, lng: -121.741},
-          clickableIcons: true,
-          gestureHandling: "cooperative",
-          streetViewControl: false
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: {lat: 38.545, lng: -121.741},
+            gestureHandling: "cooperative",
+            streetViewControl: false
         });
 
         var marker = new google.maps.Marker({
-        position: {lat: 38.545, lng: -121.741},
-        map: map,
-        title: 'HELP'
+            position: {lat: 38.545, lng: -121.741},
+            map: map,
+            title: "NAME",
+            clickable: true,
+        });
+
+        marker.addListener('click', function() {
+            window.location.href = "/Styles";
         });
 
       }
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw8BY4jfE9IdMdfYwoYOd8KiNN4Fexf9Q&callback=initMap">
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw8BY4jfE9IdMdfYwoYOd8KiNN4Fexf9Q&callback=initMap"></script>
 </html>

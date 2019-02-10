@@ -33,8 +33,12 @@ a:active {
     text-shadow: 1px 1px 0 #ccc;
 }
 
+html, body {
+    height: 100%;
+}
+
 div#map {
-    height: 75vh;
+    height: calc(100% - 8em);
 }
 
 form {

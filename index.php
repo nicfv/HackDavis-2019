@@ -21,7 +21,7 @@
             </li>
         </ul>
         <div id="map"></div>
-        <p>Each point on the map is someone experiencing a medical emergency who will be receiving help immediately.</p>
+        <div id="footer"><p>Each point on the map is someone experiencing a medical emergency who will be receiving help immediately.</p></div>
     </body>
     <script>
         // Create an empty array to use as markers on the map.
@@ -29,6 +29,8 @@
         var markers = [];
         // Draw the map in the div element centered on Davis, CA.
         function initMap() {
+            // Create a directions service.
+            var directionsService = new google.maps.DirectionsService();
             var map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
                 center: {lat: 38.545, lng: -121.741},
@@ -49,22 +51,24 @@
                     var id = patients[markers.length-1].id;
                     markers[markers.length-1].addListener("click", function() { window.location.href = "/Patient?id="+id; }, false);
                 }()); // Immediate invocation.
+                // Draw a new direction.
+                (function () {
+                    var directionsDisplay = new google.maps.DirectionsRenderer({
+                        map: map,
+                        markerOptions: {visible: false}
+                    });
+                    var request = {
+                        origin: {lat: patients[i].lat, lng: patients[i].lon},
+                        destination: {lat: 38.54273, lng: -121.76204},
+                        travelMode: 'DRIVING'
+                    };
+                    directionsService.route(request, function(result, status) {
+                        if (status == 'OK') {
+                            directionsDisplay.setDirections(result);
+                        }
+                    });
+                }()); // Immediate invocation.
             }
-            // Test a direction.
-            var directionsService = new google.maps.DirectionsService();
-            var directionsDisplay = new google.maps.DirectionsRenderer({
-                map: map
-            });
-            var request = {
-                origin: {lat: 37.545, lng: -121.741},
-                destination: {lat: 38.545, lng: -121.741},
-                travelMode: 'DRIVING'
-            };
-            directionsService.route(request, function(result, status) {
-                if (status == 'OK') {
-                    directionsDisplay.setDirections(result);
-                }
-            });
         }
 
         function patient(id, name, lat, lon) {

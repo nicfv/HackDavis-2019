@@ -1,0 +1,36 @@
+@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
+
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+ul#nav {
+    background: #f00;
+    color: #fff;
+}
+
+ul#nav li.navitem {
+    padding: 1em;
+    list-style-type: none;
+    display: inline-block;
+}
+
+a, a:link, a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff9;
+}
+
+a:active {
+    color: #ff0;
+}
+
+div#map {
+    height: 75vh;
+}

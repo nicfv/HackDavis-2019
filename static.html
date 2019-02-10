@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Seize</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="TODO">
+        <meta name="keywords" content="TODO">
+        <meta name="author" content="TODO">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="Styles/styles.css">
+        <link rel="shortcut icon" type="image/png" href="Styles/favico.png"/>
+    </head>
+    <body>
+        <ul id="nav">
+            <li class="navitem">
+                <a href="/">Home</a>
+            </li>
+            <li class="navitem">
+                <a href="/">About</a>
+            </li>
+        </ul>
+        <div id="map"></div>
+    </body>
+    <script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: {lat: 38.545, lng: -121.741},
+          clickableIcons: true,
+          gestureHandling: "cooperative",
+          streetViewControl: false
+        });
+
+        var marker = new google.maps.Marker({
+        position: {lat: 38.545, lng: -121.741},
+        map: map,
+        title: 'HELP'
+        });
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw8BY4jfE9IdMdfYwoYOd8KiNN4Fexf9Q&callback=initMap">
+    </script>
+</html>

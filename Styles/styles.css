@@ -61,3 +61,14 @@ form input[type=Submit]:active {
     color: transparent;
     text-shadow: 1px 1px 0 #000;
 }
+
+/* Remove blue border from tab select. */
+:focus {
+    outline: 0;
+}
+
+/* Customize text highlight color. */
+::selection {
+    background: #933;
+    color: #fcc;
+}

@@ -21,6 +21,7 @@
             </li>
         </ul>
         <div id="map"></div>
+        <p>Each point on the map is someone experiencing a medical emergency who will be receiving help immediately.</p>
     </body>
     <script>
         // Create an empty array to use as markers on the map.
@@ -29,7 +30,7 @@
         // Draw the map in the div element centered on Davis, CA.
         function initMap() {
             var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12,
+                zoom: 10,
                 center: {lat: 38.545, lng: -121.741},
                 gestureHandling: "cooperative",
                 streetViewControl: false

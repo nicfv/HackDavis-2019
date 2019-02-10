@@ -50,6 +50,21 @@
                     markers[markers.length-1].addListener("click", function() { window.location.href = "/Patient?id="+id; }, false);
                 }()); // Immediate invocation.
             }
+            // Test a direction.
+            var directionsService = new google.maps.DirectionsService();
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                map: map
+            });
+            var request = {
+                origin: {lat: 37.545, lng: -121.741},
+                destination: {lat: 38.545, lng: -121.741},
+                travelMode: 'DRIVING'
+            };
+            directionsService.route(request, function(result, status) {
+                if (status == 'OK') {
+                    directionsDisplay.setDirections(result);
+                }
+            });
         }
 
         function patient(id, name, lat, lon) {
